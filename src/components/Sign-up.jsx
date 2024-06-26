@@ -23,7 +23,7 @@ const Signup = ({setLogin}) => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium leading-6 text-gray-900"
+                    className="block text-sm font-medium leading-6 text-gray-900 text-start"
                   >
                     Email address
                   </label>
