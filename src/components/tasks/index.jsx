@@ -1,44 +1,19 @@
+import TaskList from './TaskList';
+
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
-const TaskList = ({header}) => {
-  const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const Index = ({header}) => {
+  const [currentPage, setCurrentPage] = useState("taskList");
+return (
+  <div className='w-full h-full'>
+      <div className='w-full h-full px-32 py-8'>
+          { currentPage == "taskList"  && <TaskList  header={header} /> }
+          {/* { header == "tasks"  && <TaskList header={header} /> } */}
+          { header == "projects"  && <Projects  header={header} /> }
+          { header == "calender"  && <Calendar  header={header} /> }
+      </div>  
+  </div>
+)
+}
 
-  useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3000/task/getAllTasks');
-        
-        setTasks(data.data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTasks();
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-
-  return (
-    <div>
-      <h1>Task List</h1>
-      <ul>
-        {
-            tasks ? (
-                tasks.map((task) =>{
-                    return <li key={task.id}>{task.title}</li>
-                })
-            ) : null
-        }
-      </ul>
-    </div>
-  );
-};
-
-export default TaskList;
+export default Index

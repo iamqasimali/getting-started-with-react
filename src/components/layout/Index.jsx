@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import Calendar from '../calender'
+import Calendar from '../calender/Index'
 import Dashboard from '../Dashboard'
 import Projects from '../projects/Index'
 import Tasks from '../tasks'
@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <div className='w-full h-full'>
         <Header header={header} setHeader={setHeader} />
-        <div className='w-full h-full px-32 py-8 bg-slate-500'>
+        <div className='w-full h-full px-32 py-8'>
             { header == "dashboard"  && <Dashboard  header={header} /> }
             { header == "tasks"  && <Tasks header={header} /> }
             { header == "projects"  && <Projects  header={header} /> }

@@ -1,14 +1,8 @@
-import { useState } from 'react'
-
-import Login from "./components/Login"
-import './App.css'
-import Signup from './components/Sign-up'
-import Header from './components/layout/Header'
-import Dashboard from './components/Dashboard'
+// import { useState } from 'react'
 import Index from './components/layout/Index'
 
 function App() {
- const [login, setLogin] = useState(true)
+//  const [login, setLogin] = useState(true)
 
   return (
     <> 
